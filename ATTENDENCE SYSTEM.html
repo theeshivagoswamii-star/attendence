@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Attendance System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: #4a6fc0;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .login-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .option {
+            flex: 1;
+            min-width: 300px;
+            padding: 30px;
+            border-right: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+        
+        .option:last-child {
+            border-right: none;
+        }
+        
+        .option:hover {
+            background: #f5f9ff;
+            transform: translateY(-5px);
+        }
+        
+        .option h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 22px;
+        }
+        
+        .option ul {
+            list-style-type: none;
+            margin-bottom: 25px;
+        }
+        
+        .option li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #ddd;
+            display: flex;
+            align-items: center;
+        }
+        
+        .option li:before {
+            content: "✓";
+            color: #4CAF50;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .login-form input {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .login-btn {
+            background: #4a6fc0;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .login-btn:hover {
+            background: #3a5ca9;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 14px;
+            border-top: 1px solid #eee;
+        }
+        
+        @media (max-width: 900px) {
+            .option {
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Smart Attendance System</h1>
+            <p>Login to access your personalized dashboard</p>
+        </div>
+        
+        <div class="login-options">
+            <!-- Student Login Section -->
+            <div class="option">
+                <h2>Student Login</h2>
+                <ul>
+                    <li>View Attendance Records</li>
+                    <li>Check Fee Structure</li>
+                    <li>Access Important Guidance</li>
+                    <li>Receive Important Messages</li>
+                </ul>
+                <div class="login-form">
+                    <input type="text" id="studentId" placeholder="Student ID" required>
+                    <input type="password" id="studentPassword" placeholder="Password" required>
+                    <button class="login-btn" onclick="studentLogin()">Login as Student</button>
+                </div>
+            </div>
+            
+            <!-- Teacher Login Section -->
+            <div class="option">
+                <h2>Teacher Login</h2>
+                <ul>
+                    <li>Fill Daily Attendance</li>
+                    <li>Manage Student Fees</li>
+                    <li>Send Important Messages</li>
+                    <li>Branch-wise Management</li>
+                </ul>
+                <div class="login-form">
+                    <input type="text" id="teacherId" placeholder="Teacher ID" required>
+                    <input type="password" id="teacherPassword" placeholder="Password" required>
+                    <button class="login-btn" onclick="teacherLogin()">Login as Teacher</button>
+                </div>
+            </div>
+            
+            <!-- Admin Login Section -->
+            <div class="option">
+                <h2>Admin Login</h2>
+                <ul>
+                    <li>View Branch-wise Data</li>
+                    <li>Send Messages to Faculty</li>
+                    <li>Manage System Settings</li>
+                    <li>Generate Reports</li>
+                </ul>
+                <div class="login-form">
+                    <input type="text" id="adminId" placeholder="Admin ID" required>
+                    <input type="password" id="adminPassword" placeholder="Password" required>
+                    <button class="login-btn" onclick="adminLogin()">Login as Admin</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2023 Smart Attendance System | Secure Login Portal</p>
+        </div>
+    </div>
+
+    <script>
+        // Basic validation functions
+        function studentLogin() {
+            const id = document.getElementById('studentId').value;
+            const password = document.getElementById('studentPassword').value;
+            
+            if (!id || !password) {
+                alert('Please enter both Student ID and Password');
+                return;
+            }
+            
+            // In a real application, this would connect to a backend
+            alert('Student login functionality will be implemented with backend');
+            // Redirect to student dashboard (to be created)
+            // window.location.href = 'student_dashboard.html';
+        }
+        
+        function teacherLogin() {
+            const id = document.getElementById('teacherId').value;
+            const password = document.getElementById('teacherPassword').value;
+            
+            if (!id || !password) {
+                alert('Please enter both Teacher ID and Password');
+                return;
+            }
+            
+            alert('Teacher login functionality will be implemented with backend');
+            // Redirect to teacher dashboard (to be created)
+            // window.location.href = 'teacher_dashboard.html';
+        }
+        
+        function adminLogin() {
+            const id = document.getElementById('adminId').value;
+            const password = document.getElementById('adminPassword').value;
+            
+            if (!id || !password) {
+                alert('Please enter both Admin ID and Password');
+                return;
+            }
+            
+            alert('Admin login functionality will be implemented with backend');
+            // Redirect to admin dashboard (to be created)
+            // window.location.href = 'admin_dashboard.html';
+        }
+    </script>
+</body>
+</html>
